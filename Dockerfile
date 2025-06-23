@@ -1,42 +1,44 @@
-# Use Node.js 20 LTS as base image
-FROM node:20-alpine
+# --------- BUILD STAGE ---------
+FROM node:20-alpine AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Copy package files
+# Copy package files and install dependencies
 COPY package*.json ./
+RUN npm ci
 
-# Install dependencies
-RUN npm ci --only=production
-
-# Copy source code
+# Copy the rest of the source code
 COPY . .
 
-# Create dist directory if it doesn't exist
-RUN mkdir -p dist
-
-# Build the application
+# Build frontend (Vite) and backend (esbuild)
 RUN npm run build
 
-# Expose port 5000
-EXPOSE 5000
+# --------- RUNTIME STAGE ---------
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy only what is needed to run the app
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/dist ./dist
+
+# Create a non-root user
+RUN addgroup -g 1001 -S nodejs \
+  && adduser -S nextjs -u 1001 \
+  && chown -R nextjs:nodejs /app
+
+USER nextjs
 
 # Set environment variables
 ENV NODE_ENV=production
 ENV PORT=5000
 
-# Create non-root user for security
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+EXPOSE 5000
 
-# Change ownership of the app directory
-RUN chown -R nextjs:nodejs /app
-USER nextjs
-
-# Health check
+# Healthcheck to verify app is up
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:5000/ || exit 1
+  CMD wget --spider -q http://localhost:5000/ || exit 1
 
-# Start the application
-CMD ["npm", "start"]
+# Start the backend (your dist/index.js)
+CMD ["node", "dist/index.js"]

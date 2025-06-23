@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  hochzeit-app:
+    build: .
+    container_name: hochzeit-app
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.hochzeit.rule=Host(`hochzeit.deine-domain.de`)"
+      - "traefik.http.routers.hochzeit.entrypoints=websecure"
+      - "traefik.http.routers.hochzeit.tls.certresolver=myresolver"
+      - "traefik.http.services.hochzeit.loadbalancer.server.port=5000"
+    networks:
+      - trafik
+
+networks:
+  treafik:
+    external: true
