@@ -1,4 +1,6 @@
 import { users, rsvps, type User, type InsertUser, type Rsvp, type InsertRsvp } from "@shared/schema";
+import { db } from "./db";
+import { eq } from "drizzle-orm";
 
 export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
@@ -8,53 +10,36 @@ export interface IStorage {
   getRsvps(): Promise<Rsvp[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<number, User>;
-  private rsvps: Map<number, Rsvp>;
-  private currentUserId: number;
-  private currentRsvpId: number;
-
-  constructor() {
-    this.users = new Map();
-    this.rsvps = new Map();
-    this.currentUserId = 1;
-    this.currentRsvpId = 1;
-  }
-
+export class DatabaseStorage implements IStorage {
   async getUser(id: number): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user || undefined;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user || undefined;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.currentUserId++;
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
+    const [user] = await db
+      .insert(users)
+      .values(insertUser)
+      .returning();
     return user;
   }
 
   async createRsvp(insertRsvp: InsertRsvp): Promise<Rsvp> {
-    const id = this.currentRsvpId++;
-    const rsvp: Rsvp = { 
-      id, 
-      name: insertRsvp.name,
-      attendance: insertRsvp.attendance,
-      menu: insertRsvp.menu || null,
-      allergies: insertRsvp.allergies || null,
-      createdAt: new Date() 
-    };
-    this.rsvps.set(id, rsvp);
+    const [rsvp] = await db
+      .insert(rsvps)
+      .values(insertRsvp)
+      .returning();
     return rsvp;
   }
 
   async getRsvps(): Promise<Rsvp[]> {
-    return Array.from(this.rsvps.values());
+    return await db.select().from(rsvps);
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();

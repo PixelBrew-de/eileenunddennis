@@ -233,7 +233,7 @@ export default function Home() {
                 className="rounded-xl shadow-lg w-full h-32 object-cover"
               />
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=300"
+                src="https://plus.unsplash.com/premium_photo-1713991088871-614d45da7fdb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Beautiful wedding garden setting"
                 className="rounded-xl shadow-lg w-full h-32 object-cover"
               />

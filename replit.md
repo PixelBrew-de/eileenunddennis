@@ -17,8 +17,8 @@ This is a wedding website application for Anna & Lukas built with a full-stack J
 
 ### Backend Architecture
 - **Runtime**: Node.js with Express.js
-- **Database**: PostgreSQL with Drizzle ORM
-- **Database Provider**: Neon Database (@neondatabase/serverless)
+- **Database**: PostgreSQL with Drizzle ORM (DatabaseStorage implementation)
+- **Database Provider**: Neon Database (@neondatabase/serverless) via Replit PostgreSQL
 - **Schema Management**: Drizzle Kit for migrations
 - **Validation**: Zod for request validation
 - **Development**: tsx for TypeScript execution
@@ -97,6 +97,9 @@ This is a wedding website application for Anna & Lukas built with a full-stack J
 ```
 Changelog:
 - June 23, 2025. Initial setup
+- June 23, 2025. Added PostgreSQL database integration with DatabaseStorage
+- June 23, 2025. Updated names from "Anna & Lukas" to "Eillen & Dennis" 
+- June 23, 2025. Changed navigation from "RSVP" to "Anmeldung" and moved legal pages to footer
 ```
 
 ## User Preferences
