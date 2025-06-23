@@ -1,0 +1,10 @@
+server/
+client/
+dist/
+node_modules/
+.git/
+*.md
+vite.config.ts
+tsconfig.json
+postcss.config.js
+tailwind.config.ts
