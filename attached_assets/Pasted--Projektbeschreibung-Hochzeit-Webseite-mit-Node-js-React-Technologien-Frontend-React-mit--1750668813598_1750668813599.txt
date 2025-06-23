@@ -1,0 +1,84 @@
+🎯 Projektbeschreibung: Hochzeit-Webseite mit Node.js & React
+🔧 Technologien:
+Frontend: React (mit Tailwind CSS oder Styled Components für Styling)
+
+Backend: Node.js mit Express.js
+
+Formularverarbeitung: POST an Express-Route, z. B. mit nodemailer (für E-Mail) oder MongoDB (für Speicherung)
+
+Optional: Google Maps API, dotenv, CORS
+
+🌸 Seitenstruktur:
+1. Startseite (Landing Page) – /
+Enthält alle Infos:
+
+Header mit Titel:
+"Anna & Lukas heiraten – 14. September 2025 – Gut Sonnenberg"
+
+Sektionen:
+
+Begrüßungstext
+
+Zeitplan (Trauung, Empfang, Dinner, Party)
+
+Google Map oder Adresse
+
+Foto des Paares oder romantisches Titelbild
+
+Antwortformular:
+Mit folgenden Feldern:
+
+Name (Textfeld)
+
+Teilnahme: [Ja] [Nein] [Vielleicht] (Radio-Buttons oder Select)
+
+Menüwahl: [Vegetarisch] [Vegan] [Fleisch] (Select oder Radio)
+
+Allergien / Anmerkungen (Textarea)
+
+Submit-Button
+
+Formularverarbeitung:
+Beim Absenden sendet das Formular eine POST-Anfrage an den Node.js-Backend-Endpunkt /api/rsvp.
+
+2. Impressum – /impressum
+Standard-Text mit Kontaktadresse, Verantwortliche, ggf. E-Mail
+
+Link in Footer (sichtbar auf jeder Seite)
+
+3. Datenschutz – /datenschutz
+DSGVO-konformer Text, z. B. Nutzung von Formularen, Mail, ggf. Cookies
+
+Auch im Footer verlinkt
+
+🖌️ Design-Vorgaben (React Frontend):
+Farben: Weiß, Beige, Altrosa, sanfte Töne
+
+Schriften: Titel in romantischer Serifenschrift, Text in Sans-Serif
+
+Layout: Responsiv (mobilfreundlich), großzügige Abstände, weiche Schatten
+
+Komponenten:
+
+Header, Footer, FormSection, Schedule, Map, ImpressumPage, DatenschutzPage
+
+Routing mit React Router (react-router-dom)
+
+🌐 Beispielhafte Routing-Struktur:
+plaintext
+Kopieren
+Bearbeiten
+/
+  -> Startseite mit Formular
+/impressum
+  -> Impressum-Text
+/datenschutz
+  -> Datenschutz-Text
+/api/rsvp (POST)
+  -> Node.js API-Endpunkt für Formularverarbeitung
+✅ Optional:
+Erfolgreiche Formular-Übermittlung zeigt eine Dankesnachricht
+
+Speichern der Daten in MongoDB oder Versenden per Mail an das Brautpaar
+
+Deployment z. B. auf Vercel (Frontend) + Render/Heroku (Backend)
