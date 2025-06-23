@@ -11,9 +11,7 @@ export default function Navigation() {
   const navItems = [
     { href: '/', label: 'Home' },
     { href: '/#timeline', label: 'Zeitplan' },
-    { href: '/#rsvp', label: 'RSVP' },
-    { href: '/impressum', label: 'Impressum' },
-    { href: '/datenschutz', label: 'Datenschutz' },
+    { href: '/#rsvp', label: 'Anmeldung' },
   ];
 
   const handleAnchorClick = (href: string) => {
