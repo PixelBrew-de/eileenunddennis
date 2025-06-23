@@ -1,45 +1,56 @@
-import { Calendar, MapPin, Heart, Clock, Users, Utensils, Music, Car, Accessibility } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import RSVPForm from '@/components/rsvp-form';
-import type { TimelineEvent } from '@/lib/types';
+import {
+  Calendar,
+  MapPin,
+  Heart,
+  Clock,
+  Users,
+  Utensils,
+  Music,
+  Car,
+  Accessibility,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import RSVPForm from "@/components/rsvp-form";
+import type { TimelineEvent } from "@/lib/types";
 
 export default function Home() {
   const timelineEvents: TimelineEvent[] = [
     {
-      time: '14:00 Uhr',
-      title: 'Trauung',
-      description: 'Die kirchliche Trauung findet in der wunderschönen Kapelle statt.',
-      icon: 'heart',
+      time: "14:00 Uhr",
+      title: "Trauung",
+      description:
+        "Die kirchliche Trauung findet in der wunderschönen Kapelle statt.",
+      icon: "heart",
     },
     {
-      time: '15:30 Uhr',
-      title: 'Empfang',
-      description: 'Sektempfang im Garten mit Glückwünschen und ersten Fotos.',
-      icon: 'users',
+      time: "15:30 Uhr",
+      title: "Empfang",
+      description: "Sektempfang im Garten mit Glückwünschen und ersten Fotos.",
+      icon: "users",
     },
     {
-      time: '18:00 Uhr',
-      title: 'Dinner',
-      description: 'Festliches Dinner mit einem 4-Gang-Menü im Festsaal.',
-      icon: 'utensils',
+      time: "18:00 Uhr",
+      title: "Dinner",
+      description: "Festliches Dinner mit einem 4-Gang-Menü im Festsaal.",
+      icon: "utensils",
     },
     {
-      time: '21:00 Uhr',
-      title: 'Party',
-      description: 'Tanzen und feiern bis in die frühen Morgenstunden!',
-      icon: 'music',
+      time: "21:00 Uhr",
+      title: "Party",
+      description: "Tanzen und feiern bis in die frühen Morgenstunden!",
+      icon: "music",
     },
   ];
 
   const getIconComponent = (iconName: string) => {
     switch (iconName) {
-      case 'heart':
+      case "heart":
         return Heart;
-      case 'users':
+      case "users":
         return Users;
-      case 'utensils':
+      case "utensils":
         return Utensils;
-      case 'music':
+      case "music":
         return Music;
       default:
         return Heart;
@@ -48,9 +59,9 @@ export default function Home() {
 
   const scrollToRSVP = () => {
     setTimeout(() => {
-      document.getElementById('rsvp')?.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      document.getElementById("rsvp")?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
       });
     }, 100);
   };
@@ -63,7 +74,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl font-bold text-charcoal mb-6">
-                Anna <span className="text-dusty-rose">&</span> Lukas
+                Eileen <span className="text-dusty-rose">&</span> Dennis
               </h1>
               <div className="font-script text-2xl md:text-3xl text-dusty-rose mb-8">
                 heiraten
@@ -71,15 +82,15 @@ export default function Home() {
               <div className="space-y-4 text-lg md:text-xl">
                 <p className="flex items-center justify-center lg:justify-start">
                   <Calendar className="text-dusty-rose mr-3" size={20} />
-                  <span>14. September 2025</span>
+                  <span>14. September 2026</span>
                 </p>
                 <p className="flex items-center justify-center lg:justify-start">
                   <MapPin className="text-dusty-rose mr-3" size={20} />
-                  <span>Gut Sonnenberg</span>
+                  <span>Schloss Caputh</span>
                 </p>
               </div>
               <div className="mt-8">
-                <Button 
+                <Button
                   onClick={scrollToRSVP}
                   className="bg-dusty-rose text-white px-8 py-3 rounded-full font-medium hover:bg-dusty-rose/90 transition duration-300 shadow-md"
                 >
@@ -88,13 +99,15 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=1000" 
-                alt="Romantic wedding couple portrait" 
-                className="rounded-2xl shadow-2xl w-full h-auto" 
+              <img
+                src="https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=1000"
+                alt="Romantic wedding couple portrait"
+                className="rounded-2xl shadow-2xl w-full h-auto"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg">
-                <p className="font-script text-2xl text-dusty-rose">Save the Date</p>
+                <p className="font-script text-2xl text-dusty-rose">
+                  Save the Date
+                </p>
               </div>
             </div>
           </div>
@@ -108,16 +121,17 @@ export default function Home() {
             Wir heiraten!
           </h2>
           <div className="prose prose-lg mx-auto text-charcoal/80 leading-relaxed">
-            <p className="text-xl mb-6">
-              Liebe Familie und Freunde,
+            <p className="text-xl mb-6">Liebe Familie und Freunde,</p>
+            <p className="mb-6">
+              nach vielen wunderschönen Jahren möchten wir den nächsten großen
+              Schritt gemeinsam gehen und heiraten! Wir würden uns riesig
+              freuen, wenn ihr diesen besonderen Tag mit uns feiert.
             </p>
             <p className="mb-6">
-              nach vielen wunderschönen Jahren möchten wir den nächsten großen Schritt gemeinsam gehen und heiraten! 
-              Wir würden uns riesig freuen, wenn ihr diesen besonderen Tag mit uns feiert.
-            </p>
-            <p className="mb-6">
-              Unser großer Tag findet am <strong>14. September 2025</strong> im wunderschönen <strong>Gut Sonnenberg</strong> statt. 
-              Freut euch auf eine unvergessliche Feier voller Liebe, Lachen und schöner Erinnerungen.
+              Unser großer Tag findet am <strong>14. September 2026</strong> im
+              wunderschönen <strong>Schloss Caputh</strong> statt. Freut euch
+              auf eine unvergessliche Feier voller Liebe, Lachen und schöner
+              Erinnerungen.
             </p>
             <p className="font-script text-2xl text-dusty-rose mt-8">
               Wir können es kaum erwarten, mit euch zu feiern!
@@ -127,17 +141,23 @@ export default function Home() {
       </section>
 
       {/* Timeline Section */}
-      <section id="timeline" className="py-20 bg-gradient-to-br from-beige-light to-rose-light">
+      <section
+        id="timeline"
+        className="py-20 bg-gradient-to-br from-beige-light to-rose-light"
+      >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="font-serif text-3xl md:text-4xl font-bold text-center text-charcoal mb-16">
             Unser Hochzeitstag
           </h2>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {timelineEvents.map((event, index) => {
               const IconComponent = getIconComponent(event.icon);
               return (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300">
+                <div
+                  key={index}
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition duration-300"
+                >
                   <div className="w-16 h-16 bg-dusty-rose rounded-full flex items-center justify-center mx-auto mb-4">
                     <IconComponent className="text-white" size={24} />
                   </div>
@@ -163,23 +183,34 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="font-serif text-3xl md:text-4xl font-bold text-charcoal mb-6">
-                Gut Sonnenberg
+                Schloss Caputh
               </h2>
               <div className="space-y-4 text-lg text-charcoal/80">
                 <p className="flex items-start">
-                  <MapPin className="text-dusty-rose mr-3 mt-1 flex-shrink-0" size={20} />
+                  <MapPin
+                    className="text-dusty-rose mr-3 mt-1 flex-shrink-0"
+                    size={20}
+                  />
                   <span>
-                    Sonnenbergstraße 123<br />
-                    12345 Musterstadt<br />
+                    Caputh 123
+                    <br />
+                    14548 Caputh
+                    <br />
                     Deutschland
                   </span>
                 </p>
                 <p className="flex items-center">
-                  <Car className="text-dusty-rose mr-3 flex-shrink-0" size={20} />
+                  <Car
+                    className="text-dusty-rose mr-3 flex-shrink-0"
+                    size={20}
+                  />
                   <span>Ausreichend Parkplätze vorhanden</span>
                 </p>
                 <p className="flex items-center">
-                  <Accessibility className="text-dusty-rose mr-3 flex-shrink-0" size={20} />
+                  <Accessibility
+                    className="text-dusty-rose mr-3 flex-shrink-0"
+                    size={20}
+                  />
                   <span>Barrierefrei zugänglich</span>
                 </p>
               </div>

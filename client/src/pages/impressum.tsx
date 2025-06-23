@@ -7,7 +7,7 @@ export default function Impressum() {
         <div className="prose prose-lg max-w-none text-charcoal/80">
           <h2 className="font-serif text-2xl font-bold text-charcoal mt-8 mb-4">Angaben gemäß § 5 TMG</h2>
           <p>
-            Anna Mustermann & Lukas Beispiel<br />
+            Eillen Mustermann & Dennis Beispiel<br />
             Musterstraße 123<br />
             12345 Musterstadt<br />
             Deutschland
@@ -15,13 +15,13 @@ export default function Impressum() {
 
           <h2 className="font-serif text-2xl font-bold text-charcoal mt-8 mb-4">Kontakt</h2>
           <p>
-            E-Mail: anna.lukas@hochzeit2025.de<br />
+            E-Mail: eillen.dennis@hochzeit2025.de<br />
             Telefon: +49 (0) 123 456789
           </p>
 
           <h2 className="font-serif text-2xl font-bold text-charcoal mt-8 mb-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
           <p>
-            Anna Mustermann & Lukas Beispiel<br />
+            Eillen Mustermann & Dennis Beispiel<br />
             Musterstraße 123<br />
             12345 Musterstadt
           </p>

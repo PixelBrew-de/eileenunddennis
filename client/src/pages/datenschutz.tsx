@@ -47,7 +47,7 @@ export default function Datenschutz() {
           <div className="bg-rose-light p-6 rounded-xl mt-8">
             <p className="font-medium text-charcoal flex items-center">
               <Mail className="text-dusty-rose mr-2" size={20} />
-              Bei Fragen zum Datenschutz kontaktieren Sie uns unter: anna.lukas@hochzeit2025.de
+              Bei Fragen zum Datenschutz kontaktieren Sie uns unter: eillen.dennis@hochzeit2025.de
             </p>
           </div>
         </div>

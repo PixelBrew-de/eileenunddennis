@@ -33,7 +33,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link href="/">
-              <h1 className="font-script text-2xl text-dusty-rose cursor-pointer">Anna & Lukas</h1>
+              <h1 className="font-script text-2xl text-dusty-rose cursor-pointer">Eillen & Dennis</h1>
             </Link>
           </div>
           

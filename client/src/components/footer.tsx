@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
           <div>
-            <h3 className="font-script text-2xl text-dusty-rose mb-4">Anna & Lukas</h3>
+            <h3 className="font-script text-2xl text-dusty-rose mb-4">Eillen & Dennis</h3>
             <p className="text-white/80">
               14. September 2025<br />
               Gut Sonnenberg
@@ -16,7 +16,7 @@ export default function Footer() {
           <div>
             <h4 className="font-medium mb-4">Kontakt</h4>
             <p className="text-white/80">
-              E-Mail: anna.lukas@hochzeit2025.de<br />
+              E-Mail: eillen.dennis@hochzeit2025.de<br />
               Telefon: +49 (0) 123 456789
             </p>
           </div>
@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-white/20 mt-8 pt-8 text-center">
           <p className="text-white/60 text-sm flex items-center justify-center">
-            © 2025 Anna & Lukas. Made with <Heart className="w-4 h-4 text-dusty-rose mx-1" /> for our special day.
+            © 2025 Eillen & Dennis. Made with <Heart className="w-4 h-4 text-dusty-rose mx-1" /> for our special day.
           </p>
         </div>
       </div>
