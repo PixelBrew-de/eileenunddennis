@@ -6,11 +6,11 @@ Die Hochzeitswebsite ist durch HTTP Basic Authentication geschützt. Gäste ben�
 
 ### Option 1:
 - **Benutzername**: `hochzeit`
-- **Passwort**: `eillen2025`
+- **Passwort**: `eillen2026`
 
 ### Option 2:
 - **Benutzername**: `gast` 
-- **Passwort**: `dennis2025`
+- **Passwort**: `dennis2026`
 
 ### Option 3:
 - **Benutzername**: `einladung`

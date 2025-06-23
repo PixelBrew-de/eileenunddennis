@@ -71,8 +71,8 @@ const basicAuth = (req: Request, res: Response, next: NextFunction) => {
 
   // Simple credentials for wedding guests
   const validCredentials = [
-    { username: 'hochzeit', password: 'eillen2025' },
-    { username: 'gast', password: 'dennis2025' },
+    { username: 'hochzeit', password: 'eillen2026' },
+    { username: 'gast', password: 'dennis2026' },
     { username: 'einladung', password: 'gutsonenberg' }
   ];
 

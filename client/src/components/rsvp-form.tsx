@@ -78,7 +78,7 @@ export default function RSVPForm() {
             Bitte um Antwort
           </h2>
           <p className="text-lg text-charcoal/80">
-            Wir freuen uns auf eure Rückmeldung bis zum <strong>1. August 2025</strong>
+            Wir freuen uns auf eure Rückmeldung bis zum <strong>1. August 2026</strong>
           </p>
         </div>
 

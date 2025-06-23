@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="font-script text-2xl text-dusty-rose mb-4">Eillen & Dennis</h3>
             <p className="text-white/80">
-              14. September 2025<br />
+              14. September 2026<br />
               Gut Sonnenberg
             </p>
           </div>
@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
         <div className="border-t border-white/20 mt-8 pt-8 text-center">
           <p className="text-white/60 text-sm flex items-center justify-center">
-            © 2025 Eillen & Dennis. Made with <Heart className="w-4 h-4 text-dusty-rose mx-1" /> for our special day.
+            © 2026 Eillen & Dennis. Made with <Heart className="w-4 h-4 text-dusty-rose mx-1" /> for our special day.
           </p>
         </div>
       </div>
