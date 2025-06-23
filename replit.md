@@ -101,6 +101,8 @@ Changelog:
 - June 23, 2025. Updated names from "Anna & Lukas" to "Eillen & Dennis" 
 - June 23, 2025. Changed navigation from "RSVP" to "Anmeldung" and moved legal pages to footer
 - June 23, 2025. Added HTTP Basic Authentication for guest access control with QR code integration
+- June 23, 2025. Updated wedding date from 2025 to 2026 throughout application
+- June 23, 2025. Created Dockerfile and .dockerignore for containerized deployment
 ```
 
 ## User Preferences
