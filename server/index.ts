@@ -5,6 +5,8 @@ import { setupVite, serveStatic, log } from "./vite";
 
 const app = express();
 
+// ...existing code...
+
 // HTTP Basic Authentication middleware
 const basicAuth = (req: Request, res: Response, next: NextFunction) => {
   // Skip authentication for static assets and development files
