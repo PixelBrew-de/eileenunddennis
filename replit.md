@@ -100,6 +100,7 @@ Changelog:
 - June 23, 2025. Added PostgreSQL database integration with DatabaseStorage
 - June 23, 2025. Updated names from "Anna & Lukas" to "Eillen & Dennis" 
 - June 23, 2025. Changed navigation from "RSVP" to "Anmeldung" and moved legal pages to footer
+- June 23, 2025. Added HTTP Basic Authentication for guest access control with QR code integration
 ```
 
 ## User Preferences
