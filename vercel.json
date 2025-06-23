@@ -3,16 +3,17 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/node",
+      "use": "@vercel/static-build",
       "config": {
-        "includeFiles": ["dist/**", "server/**", "shared/**"]
+        "distDir": "dist/public"
       }
+    },
+    {
+      "src": "server/index.ts",
+      "use": "@vercel/node"
     }
   ],
   "routes": [
-    {
-      "handle": "filesystem"
-    },
     {
       "src": "/api/(.*)",
       "dest": "server/index.ts"
