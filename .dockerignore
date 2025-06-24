@@ -23,6 +23,7 @@ Thumbs.db
 dist/
 .next/
 out/
+.vercel/
 
 # Test files
 __tests__/

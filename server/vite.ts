@@ -23,7 +23,7 @@ export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
     middlewareMode: true,
     hmr: { server },
-    allowedHosts: ['localhost', '.vercel.app'] as string[],
+    allowedHosts: ['localhost'] as string[],
   };
 
   const vite = await createViteServer({
@@ -31,9 +31,14 @@ export async function setupVite(app: Express, server: Server) {
     configFile: false,
     customLogger: {
       ...viteLogger,
-      error: (msg, options) => {
+      error: (msg: any, options: any) => {
         viteLogger.error(msg, options);
-        process.exit(1);
+        // Verwende global anstatt process wenn vorhanden
+        try {
+          process.exit(1);
+        } catch (e) {
+          console.error("Konnte Prozess nicht beenden:", e);
+        }
       },
     },
     server: serverOptions,
@@ -41,12 +46,15 @@ export async function setupVite(app: Express, server: Server) {
   });
 
   app.use(vite.middlewares);
-  app.use("*", async (req, res, next) => {
+  app.use("*", async (req: any, res: any, next: any) => {
     const url = req.originalUrl;
 
     try {
+      // Da wir keine Node-Typen haben, müssen wir eine alternative Methode verwenden
+      // In einer echten Umgebung sollte process.cwd() funktionieren
+      const currentDir = new URL(import.meta.url).pathname;
       const clientTemplate = path.resolve(
-        import.meta.dirname,
+        path.dirname(currentDir),
         "..",
         "client",
         "index.html",
@@ -68,7 +76,14 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(import.meta.dirname, "public");
+  // Da wir keine Node-Typen haben, müssen wir eine alternative Methode verwenden
+  // In einer echten Umgebung sollte process.cwd() funktionieren
+  const currentDir = new URL(import.meta.url).pathname;
+  const distPath = path.resolve(
+    path.dirname(currentDir),
+    "..",
+    "public"
+  );
 
   if (!fs.existsSync(distPath)) {
     throw new Error(
@@ -79,7 +94,7 @@ export function serveStatic(app: Express) {
   app.use(express.static(distPath));
 
   // fall through to index.html if the file doesn't exist
-  app.use("*", (_req, res) => {
+  app.use("*", (_req: any, res: any) => {
     res.sendFile(path.resolve(distPath, "index.html"));
   });
 }

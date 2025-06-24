@@ -1,4 +1,4 @@
-// Vercel serverless function handler
+// API handler for Docker deployment
 import express, { type Request, Response, NextFunction } from "express";
 
 const app = express();
@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // Add CORS headers
-app.use((req, res, next) => {
+app.use((req: any, res: any, next: any) => {
   res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 });
 
 // Simple test route
-app.get('/', (req, res) => {
+app.get('/', (req: any, res: any) => {
   res.send(`
     <!DOCTYPE html>
     <html lang="de">
@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
         <h1>Eileen & Dennis</h1>
         <div class="heart">💕</div>
         <p>Willkommen zu unserer Hochzeits-RSVP Seite!</p>
-        <p>Die Anwendung läuft erfolgreich auf Vercel! 🎉</p>
+        <p>Die Anwendung läuft erfolgreich auf unserem Server! 🎉</p>
       </div>
     </body>
     </html>
@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 });
 
 // Health check
-app.get('/api/health', (req, res) => {
+app.get('/api/health', (req: any, res: any) => {
   res.json({ status: 'OK', message: 'Server is running!' });
 });
 

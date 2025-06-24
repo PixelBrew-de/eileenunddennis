@@ -8,15 +8,27 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=5000
+    volumes:
+      - hochzeit_data:/app/data
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.hochzeit.rule=Host(`hochzeit.deine-domain.de`)"
       - "traefik.http.routers.hochzeit.entrypoints=websecure"
       - "traefik.http.routers.hochzeit.tls.certresolver=myresolver"
       - "traefik.http.services.hochzeit.loadbalancer.server.port=5000"
+      - "traefik.http.middlewares.hochzeit-compress.compress=true"
+      - "traefik.http.routers.hochzeit.middlewares=hochzeit-compress"
+      - "traefik.http.services.hochzeit.loadbalancer.healthcheck.path=/health"
+      - "traefik.http.services.hochzeit.loadbalancer.healthcheck.interval=30s"
+      - "traefik.http.services.hochzeit.loadbalancer.healthcheck.timeout=3s"
     networks:
       - trafik
 
 networks:
-  treafik:
+  trafik:
     external: true
+    
+volumes:
+  hochzeit_data:
+    driver: local

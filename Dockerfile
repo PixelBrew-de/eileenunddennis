@@ -25,10 +25,10 @@ COPY --from=builder /app/dist ./dist
 
 # Create a non-root user
 RUN addgroup -g 1001 -S nodejs \
-  && adduser -S nextjs -u 1001 \
-  && chown -R nextjs:nodejs /app
+  && adduser -S appuser -u 1001 \
+  && chown -R appuser:nodejs /app
 
-USER nextjs
+USER appuser
 
 # Set environment variables
 ENV NODE_ENV=production
@@ -38,7 +38,7 @@ EXPOSE 5000
 
 # Healthcheck to verify app is up
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget --spider -q http://localhost:5000/ || exit 1
+  CMD wget --spider -q http://localhost:5000/health || exit 1
 
 # Start the backend (your dist/index.js)
 CMD ["node", "dist/index.js"]
